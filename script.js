@@ -2,11 +2,6 @@ const gridContainer = document.querySelector('.grid-container');
 
 const btnCreate = document.querySelector('.btnCreate');
 
-gridContainer.style['display'] = 'grid';
-gridContainer.style['grid-template-columns'] = 'repeat(16, 40px)';
-gridContainer.style['grid-template-rows'] = 'repeat(16, 40px)';
-gridContainer.style['gap'] = '1px';
-
 btnCreate.addEventListener('click', () => {
     let gridNumber = prompt('Enter a grid number');
 

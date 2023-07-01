@@ -15,24 +15,29 @@ btnCreate.addEventListener('click', () => {
             gridContainer.removeChild(gridContainer.firstChild);
         }
 
-        for (let i = 0; i < gridNumber * gridNumber; i++) {
-            const gridItem = document.createElement('div');
-            gridItem.classList.add('grid-item');
-            gridItem.setAttribute('id', i);
-            gridContainer.appendChild(gridItem);
+        function addGrid(gridNumber){
+            let i = 0;
+            do {
+                const gridItem = document.createElement('div');
+                gridItem.classList.add('grid-item');
 
+                gridContainer.appendChild(gridItem);
+                // console.log(gridItem.target.id);
 
-            gridItem.style['background-color'] = "#ccc";
-            gridItem.style['border'] = "1px solid black";
+                function colorGrid(e){
+                    e.target.style.backgroundColor = "red";
+                    const hoveredElementId = e.target.id;
+        
+                     console.log(hoveredElementId);
+                }
 
-            gridItem.addEventListener('mouseover', (e) => {
-                const hoveredElementId = e.target.id;
-
-                // console.log(hoveredElementId);
-
-                gridItem.style['background-color'] = "black";
-            });
+                gridItem.addEventListener("mouseover", colorGrid); 
+  
+            i++;
+            } while (i < gridNumber * gridNumber);
         }
+
+        addGrid(gridNumber);
 
     } else {
         alert('Invalid input. Grid number must be less than 100');
@@ -40,21 +45,3 @@ btnCreate.addEventListener('click', () => {
 
 });
 
-
-// for (let i = 0; i < 0; i++) {
-//     const gridItem = document.createElement('div');
-//     gridItem.classList.add('grid-item');
-//     gridItem.setAttribute('id', i);
-//     gridContainer.appendChild(gridItem);
-
-//     gridItem.style['background-color'] = "#ccc";
-//     gridItem.style['border'] = "1px solid black";
-
-//     gridItem.addEventListener('mouseover', (e) => {
-//         const hoveredElementId = e.target.id;
-
-//         console.log(hoveredElementId);
-
-//         gridItem.style['background-color'] = "black";
-//     });
-// }

@@ -17,3 +17,8 @@
     flex-direction: column;
     gap: 20px;
 }
+
+.grid-item{
+    background-color: yellow;
+    border: 1px solid black;
+}

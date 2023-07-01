@@ -2,6 +2,10 @@ const gridContainer = document.querySelector('.grid-container');
 
 const btnCreate = document.querySelector('.btnCreate');
 
+const gridItem = document.createElement('div');
+gridItem.classList.add('grid-item');
+
+
 btnCreate.addEventListener('click', () => {
     let gridNumber = prompt('Enter a grid number');
 
@@ -17,26 +21,21 @@ btnCreate.addEventListener('click', () => {
 
         function addGrid(gridNumber){
             let i = 0;
-            do {
-                const gridItem = document.createElement('div');
-                gridItem.classList.add('grid-item');
-
-                gridContainer.appendChild(gridItem);
-                // console.log(gridItem.target.id);
+            do {              
+                let hello = gridContainer.appendChild(gridItem.cloneNode(true));
 
                 function colorGrid(e){
                     e.target.style.backgroundColor = "red";
-                    const hoveredElementId = e.target.id;
-        
-                     console.log(hoveredElementId);
                 }
-
-                gridItem.addEventListener("mouseover", colorGrid); 
+        
+                hello.addEventListener("mouseover", colorGrid); 
   
             i++;
             } while (i < gridNumber * gridNumber);
         }
 
+
+        
         addGrid(gridNumber);
 
     } else {
